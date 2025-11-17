@@ -2,24 +2,26 @@
 #include <chrono>
 #include <iostream>
 
-void chef_olivia() {
-    std::cout << "Olivia started & waiting for sausage to thaw...\n";
-    std::this_thread::sleep_for(std::chrono::seconds(3));
-    std::cout << "Olivia is done cutting sausage.\n";
+void xCleanerThreadHandler()
+{
+    while (true)
+    {
+        std::cout << "Cleaned the kitchen.\n";
+        std::this_thread::sleep_for(std::chrono::seconds(1));
+    }
 }
 
-int main() {
-    std::cout << "Barron requests Olivia's help.\n";
-    std::thread olivia(chef_olivia);
-    std::cout << "Olivia is Joinable?" << (olivia.joinable() ? " Yes\n" : " No\n");
+int main()
+{
+    std::thread cleanerThread(xCleanerThreadHandler);
 
-    std::cout << "Barron continues cooking soup.\n";
-    std::this_thread::sleep_for(std::chrono::seconds(1));
-    std::cout << "Olivia is Joinable?" << (olivia.joinable() ? " Yes\n" : " No\n");
+    for (int i = 0; i < 3; i++)
+    {
+        std::cout << "Processing other tasks...\n";
+        std::this_thread::sleep_for(std::chrono::milliseconds(600));
+    }
 
-    std::cout << "Barron patiently waits for Olivia to finish and join...\n";
-    olivia.join(); // works like await in JS, waits for the thread to finish (barrier)
-    std::cout << "Olivia is Joinable?" << (olivia.joinable() ? " Yes\n" : " No\n");
-    
-    std::cout << "Barron and Olivia are both done!\n";
+    std::cout << "Main thread is done!\n";
+    cleanerThread.join();
+    // Even after the main thread is done, the cleanerThread will keep running
 }
