@@ -1,15 +1,11 @@
 #include <iostream>
 #include <string>
+#include <thread>
+#include <chrono>
+#include <unistd.h>
 
 int main() {
-    std::string name;
     
-    std::cout << "Welcome to C++ Fundamentals!" << std::endl;
-    std::cout << "Enter your name: ";
-    std::getline(std::cin, name);
-    
-    std::cout << "Hello, " << name << "!" << std::endl;
-    std::cout << "This is a simple C++ program." << std::endl;
-    
+    std::cout << "Process ID: " << getpid() << std::endl;
     return 0;
 }
