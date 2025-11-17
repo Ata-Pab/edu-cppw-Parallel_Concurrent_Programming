@@ -14,6 +14,7 @@ void xCleanerThreadHandler()
 int main()
 {
     std::thread cleanerThread(xCleanerThreadHandler);
+    cleanerThread.detach(); // Detach the thread to let it run independently, terminating when main thread ends
 
     for (int i = 0; i < 3; i++)
     {
@@ -22,6 +23,5 @@ int main()
     }
 
     std::cout << "Main thread is done!\n";
-    cleanerThread.join();
-    // Even after the main thread is done, the cleanerThread will keep running
+    // cleanerThread.join(); // Not needed since we detached the thread
 }
