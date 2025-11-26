@@ -59,3 +59,5 @@ Livelock is a situation in concurrent computing where two or more threads block 
 - They occur when multiple processes simultaneously attempt to resolve a deadlock
 - To prevent livelock, ensure only one process takes action to resolve conflicts
 - Use mechanisms like priority systems or random selection to choose which process acts
+
+[See Examples](../example/CH05/)
