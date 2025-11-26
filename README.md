@@ -31,3 +31,7 @@ After building, you can run the program from the terminal:
 - `.vscode/tasks.json` - Build configuration
 - `.vscode/launch.json` - Debug configuration
 - `.vscode/c_cpp_properties.json` - IntelliSense configuration
+
+## Resources
+
+[Complete Guide to Parallel and Concurrent Programming with C++](https://www.linkedin.com/learning/complete-guide-to-parallel-and-concurrent-programming-with-c-plus-plus/)
