@@ -47,3 +47,5 @@ When multiple threads concurrently read and write to a shared resource, that can
 ## Best Practices
 - It's crucial to keep the code protected by a mutex as short as possible to prevent threads from getting stuck waiting
 - Operations that don't require the shared resource should be performed outside the critical section to improve efficiency
+
+[See Examples](../example/CH03/)
