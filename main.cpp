@@ -1,27 +1,17 @@
 #include <thread>
 #include <chrono>
 #include <iostream>
+#include <mutex>
 
-void xCleanerThreadHandler()
-{
-    while (true)
-    {
-        std::cout << "Cleaned the kitchen.\n";
-        std::this_thread::sleep_for(std::chrono::seconds(1));
-    }
-}
+/*
+ * main.cpp
+ * This file is just for demonstration and test purposes.
+ * Source code for the actual implementations are in /examples folder.
+ * 
+ * Reference: https://www.linkedin.com/learning/complete-guide-to-parallel-and-concurrent-programming-with-c-plus-plus/
+*/
 
 int main()
 {
-    std::thread cleanerThread(xCleanerThreadHandler);
-    cleanerThread.detach(); // Detach the thread to let it run independently, terminating when main thread ends
-
-    for (int i = 0; i < 3; i++)
-    {
-        std::cout << "Processing other tasks...\n";
-        std::this_thread::sleep_for(std::chrono::milliseconds(600));
-    }
-
-    std::cout << "Main thread is done!\n";
-    // cleanerThread.join(); // Not needed since we detached the thread
+    // Add your code here
 }
