@@ -27,3 +27,59 @@ One common use case for condition variables is implementing a shared queue or bu
 ## Summary
 - Condition variables enable efficient thread synchronization by allowing threads to wait for specific conditions and signal each other when those conditions are met
 - This mechanism improves upon simple mutex-based solutions by reducing “busy-waiting” and enabling more sophisticated coordination between threads
+
+# Producer-Consumer Pattern
+The producer-consumer pattern is a common design in concurrent programming. It involves producers adding elements to a shared data structure and consumers removing and processing them.
+
+## Queue structure
+- The shared data structure is typically a queue
+- Queues operate on a first-in, first-out (`FIFO`) principle
+
+## Synchronization challenges
+- Mutual exclusion is needed to ensure **only one thread accesses the queue at a time**
+- Producers must not add data to a full queue
+- Consumers must not remove data from an empty queue
+- Some languages offer thread-safe queue implementations
+
+## Buffer management
+- Buffer overflow can occur if consumers can't keep up with producers
+- Unbounded queues exist but are still limited by physical memory
+
+## Processing rates
+- The average rate of production should be less than the average rate of consumption
+- Data may arrive in bursts, requiring the consumer to catch up between bursts
+
+## Pipeline Architecture
+- A pipeline is a chain of processing elements where **each element's output** is the **input to the next element**, creating a sequence of producer-consumer pairs connected by buffers
+- An advantage of a pipeline is that it allows for parallel processing of multiple items at different stages
+- An important consideration is that each element in the pipeline must process data faster than upstream elements produce it
+
+# Semaphores
+- Semaphores are a synchronization mechanism used to control access to shared resources
+- Unlike locks or mutexes, semaphores can **allow** multiple threads to **access a resource simultaneously**
+- Semaphores include a **counter** to track how many times they've been **acquired** or **released**
+
+## Semaphore Functionality
+- Threads can acquire a semaphore when its count is positive, decrementing the counter
+- If the counter reaches zero, threads attempting to acquire the semaphore are blocked and queued
+- Threads release the semaphore when done, incrementing the counter and potentially signaling waiting threads
+
+## Types of Semaphores
+### Counting semaphore
+- Counting semaphores can have values of 0, 1, 2, 3, and so on, representing the number of available resources
+- They can be used to manage access to a limited pool of resources, such as database connections or items in a queue
+
+Barron, Olivia, and Steve demonstrate a counting semaphore using a two-port phone charger:
+
+- The number of available ports represents a semaphore with an initial value of two
+- As devices are plugged in, the semaphore value is decremented; when unplugged, the semaphore count is incremented
+- When all ports are in use (for example, the semaphore value is 0), additional threads must wait to acquire the semaphore
+
+### Binary semaphore
+- Binary semaphores are restricted to one of two values: **0** (`locked`) or **1** (`unlocked`)
+- They are similar to mutexes, but with a key difference that **any thread can release a semaphore**, not just the one that acquired it
+
+## Key Advantages of Semaphores
+- Flexibility in allowing multiple threads to access resources simultaneously
+- Ability to function as a **signaling mechanism between threads**
+- Versatility in managing various types of resource pools and synchronization scenarios
