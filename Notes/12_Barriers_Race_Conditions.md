@@ -59,3 +59,17 @@ Barriers ensure the correct order of operations regardless of thread scheduling:
 
 Barriers provide a reliable method for synchronizing threads in concurrent programming, ensuring correct execution order and preventing race conditions.
 
+## Latch
+
+Latches are similar to barriers but are typically used for one-time synchronization. Once the latch condition is met (e.g., a certain number of threads have reached it), it cannot be reused. Latches are often used to ensure that a set of threads complete their tasks before allowing another thread to proceed
+
+- `latch` (value): Initialize count value 
+- `wait(latch)`: Decrement count; if count > 0, block until count reaches 0
+- `countdown(latch)`: Decrement count; if count == 0, unblock all
+
+**Barriers** release all waiting threads each time they are reached, while **latches** release threads only once when the count reaches `zero`. Latches are generally initialized with a specific count value and are used to block threads until that count reaches zero. Barriers, on the other hand, are reusable synchronization points that allow threads to wait for each other multiple times during execution.
+
+- Latch -> Initialize count to 1 : A simple ON/OFF gate
+- Latch -> Initialize count to N : Wait N threads to complete some action
+
+---
