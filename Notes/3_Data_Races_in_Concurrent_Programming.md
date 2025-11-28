@@ -49,3 +49,5 @@ When multiple threads concurrently read and write to a shared resource, that can
 - Operations that don't require the shared resource should be performed outside the critical section to improve efficiency
 
 [See Examples](../example/CH03/)
+
+---
