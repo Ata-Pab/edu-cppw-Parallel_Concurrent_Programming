@@ -72,4 +72,7 @@ Latches are similar to barriers but are typically used for one-time synchronizat
 - Latch -> Initialize count to 1 : A simple ON/OFF gate
 - Latch -> Initialize count to N : Wait N threads to complete some action
 
+### References
+
+- [Boost C++ Libraries - Barrier](https://www.boost.org/doc/libs/1_81_0/doc/html/thread/synchronization.html#thread.synchronization.barriers)
 ---
