@@ -83,3 +83,5 @@ Barron, Olivia, and Steve demonstrate a counting semaphore using a two-port phon
 - Flexibility in allowing multiple threads to access resources simultaneously
 - Ability to function as a **signaling mechanism between threads**
 - Versatility in managing various types of resource pools and synchronization scenarios
+
+---

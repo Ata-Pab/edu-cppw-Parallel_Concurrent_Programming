@@ -16,17 +16,13 @@ Barron and Olivia illustrate synchronization issues in concurrent programming us
 ## Real-World Application
 - One example of a real-world scenario with the potential for deadlock is a banking application, where transferring funds between accounts requires acquiring locks for both the sender and receiver accounts
 - Multiple threads making concurrent transfers could potentially lead to deadlock situations
+
 ## Solution to Deadlock
 Barron and Olivia demonstrate one possible solution to prevent deadlock with the Dining Philosophers problem:
 
 - The philosophers implement a lock prioritization strategy to avoid deadlock
 - By agreeing to acquire the same chopstick first, they prevent the circular wait condition that causes deadlock
 - This solution ensures that one philosopher can always complete the critical section, allowing the other to proceed afterward
-
-
-
-
-
 
 ## Abandoned Lock: A New Form of Deadlock
 An abandoned lock occurs when a thread acquires a lock on a shared resource and exits before releasing its lock on that resource, leaving other threads trying to acquire the lock to wait indefinitely. When a thread or process acquires a lock and then terminates unexpectedly, it may not release the lock automatically.
@@ -61,3 +57,5 @@ Livelock is a situation in concurrent computing where two or more threads block 
 - Use mechanisms like priority systems or random selection to choose which process acts
 
 [See Examples](../example/CH05/)
+
+---

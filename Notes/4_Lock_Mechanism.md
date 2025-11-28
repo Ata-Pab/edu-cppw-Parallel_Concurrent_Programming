@@ -1,5 +1,7 @@
 # Lock Mechanism
+
 A lock mechanism is a synchronization primitive used in concurrent programming to control access to shared resources
+
 ## `Reentrant` Mutexes
 - A reentrant mutex is a type of mutex that **can be locked multiple times** by the same thread or process
 - It keeps track internally of how many times it has been locked by the owning thread
