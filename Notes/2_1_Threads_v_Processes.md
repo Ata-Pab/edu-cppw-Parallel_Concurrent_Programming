@@ -48,7 +48,8 @@ int main() {
     std::this_thread::sleep_for(std::chrono::seconds(1));
     chopping = false;
     barron.join();
-    olivia.join();
+    olivia.join(); // Wait for both threads to finish
+    return 0;
 }
 ```
 
@@ -62,7 +63,7 @@ int main() {
 Concurrency refers to the ability of a program to be broken into independent parts that can be executed out of order without affecting the final result. It focuses on how a program is structured and composed of independently executing processes. Concurrent execution does not necessarily mean parallel execution.
 
 ## Concurrent Execution
-- Concurrent processes overlap in time but may not execute simultaneously on a single processor
+- Concurrent processes overlap in time but may **not** execute **simultaneously** on a **single processor**
 - Rapid task-switching can create an illusion of simultaneous execution, but it's not true parallelism
 
 ## Parallel Execution
@@ -94,7 +95,7 @@ Computers manage multiple processes and threads competing for limited processor 
 
 ### Process management
 - The scheduler enables multiple programs to run concurrently on a single processor
-- New processes are loaded into memory and placed in the "ready queue" when created
+- New processes are loaded into memory and placed in the `ready queue` when created
 - The scheduler cycles through ready processes, allocating CPU time for each process to execute
 
 ### Multiprocessor handling
@@ -112,8 +113,8 @@ Computers manage multiple processes and threads competing for limited processor 
 ## Scheduling Algorithms
 - Different operating systems use different scheduling algorithms based on their specific purposes and system requirements
 - Some scheduling algorithms aim to maximize throughput, while others focus on minimizing latency for improved responsiveness
-- Preemptive scheduling: Can interrupt low-priority processes for high-priority ones
-- Non-preemptive scheduling: Allows processes to run for their full allotted time once started
+- **Preemptive scheduling**: Can interrupt low-priority processes for high-priority ones
+- **Non-preemptive scheduling**: Allows processes to run for their full allotted time once started
 
 ### Key Takeaways
 - Scheduling details are typically handled by the OS "under the hood"
