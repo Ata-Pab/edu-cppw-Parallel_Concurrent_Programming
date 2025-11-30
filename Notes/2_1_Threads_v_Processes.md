@@ -1,9 +1,9 @@
 # Thread vs. Processes
 
 ## Processes
-- A process is an instance of a program executing on a computer
+- A process is an **instance of a program** executing on a computer
 - It consists of the program's code, data, and state information
-- Each process has its own independent address space in memory
+- Each process has its **own independent address** space in memory
 - Computers can manage hundreds of active processes simultaneously
 
 ## Threads
@@ -24,6 +24,33 @@
 - A process is likened to a kitchen (address space) where cooking occurs
 - Threads are represented by cooks working on different tasks within the same kitchen
 - Different processes are compared to separate kitchens working on distinct meals
+
+```cpp
+#include <thread>
+#include <chrono>
+
+bool chopping = true;
+
+void vegetable_chopper(const char* name) {
+    unsigned int vegetable_count = 0;
+    while (chopping) {
+        vegetable_count++;
+    }
+    printf("%s chopped %u vegetables.\n", name, vegetable_count);
+    printf("Chopper Thread ID %d\n", std::this_thread::get_id()); // Get thread ID for logging purposes
+}
+
+int main() {
+    std::thread olivia(vegetable_chopper, "Olivia");
+    std::thread barron(vegetable_chopper, "Barron");
+    
+	printf("Barron and Olivia are chopping vegetables...\n");
+    std::this_thread::sleep_for(std::chrono::seconds(1));
+    chopping = false;
+    barron.join();
+    olivia.join();
+}
+```
 
 ## Choosing between Threads and Processes
 - The choice depends on the specific task and operating environment

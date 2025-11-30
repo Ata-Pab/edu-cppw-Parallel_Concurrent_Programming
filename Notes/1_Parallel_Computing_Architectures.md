@@ -2,7 +2,7 @@
 
 ## Four Classes of Computer Architecture
 
-Parallel computing requires parallel hardware with multiple processors. Flynn's taxonomy classifies one of four multi-processor architectures based on its instruction streams and data streams:
+Parallel computing requires **parallel hardware** with multiple processors. Flynn's taxonomy classifies one of four multi-processor architectures based on its instruction streams and data streams:
 
 ### 1. Single Instruction, Single Data (SISD)
 - Sequential computer with a single processor unit
@@ -12,7 +12,7 @@ Parallel computing requires parallel hardware with multiple processors. Flynn's 
 - Parallel computer with multiple processing units
 - All processors execute the same instruction simultaneously on different data elements
 - Well-suited for applications performing repetitive operations on large datasets (for example, image processing)
-- Modern GPUs often use SIMD instructions
+- Modern **GPUs** often use SIMD instructions
 
 ### 3. Multiple Instruction, Single Data (MISD)
 - Each processing unit executes its own series of instructions on the same data stream
@@ -20,7 +20,7 @@ Parallel computing requires parallel hardware with multiple processors. Flynn's 
 
 ### 4. Multiple Instruction, Multiple Data (MIMD)
 - Each processing unit can execute different instructions on different datasets
-- Most commonly used architecture found in multicore PCs, networked clusters, and supercomputers
+- Most commonly used architecture found in multicore **PCs**, networked clusters, and supercomputers
 - MIMD Subdivisions
 
 ### Single Program, Multiple Data (SPMD)
@@ -30,7 +30,7 @@ Parallel computing requires parallel hardware with multiple processors. Flynn's 
 
 ### Multiple Program, Multiple Data (MPMD)
 - Processors execute different, independent programs simultaneously on different data
-- Often uses a "host" or "manager" node to distribute work to other nodes and then collect results
+- Often uses a `host` or `manager` node to distribute work to other nodes and then collect results
 - Less common than SPMD but useful for certain applications
 
 # Shared vs. Distributed Memory
