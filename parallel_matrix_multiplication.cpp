@@ -4,7 +4,7 @@
 #include <mutex>
 
 /*
- * main.cpp
+ * parallel_matrix_multiplication.cpp
  * This file is just for demonstration and test purposes.
  * Source code for the actual implementations are in /examples folder.
  *
